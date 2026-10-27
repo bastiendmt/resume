@@ -76,6 +76,7 @@ p { margin: 0; }
 
 a { color: var(--ink); text-decoration: none; }
 a:hover { color: var(--accent); }
+main a { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 2px; }
 
 /* ── Blocks ────────────────────────────────────────────────── */
 section { display: flex; flex-direction: column; gap: 10px; }
