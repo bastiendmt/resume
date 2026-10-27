@@ -1,0 +1,107 @@
+/* ── Design tokens: change the accent here ─────────────────── */
+:root {
+  --accent: #1D6FB8;   /* try #0F766E, #B45309 or #1F2933 */
+  --ink: #1F2933;
+  --muted: #5B6672;
+  --sidebar: #F4F6F8;
+  --paper: #FFFFFF;
+}
+
+/* ── Page setup: A4, prints edge to edge ───────────────────── */
+@page { size: A4; margin: 0; }
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  background: #E5E7EB;
+  font-family: Inter, system-ui, sans-serif;
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--ink);
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.page {
+  width: 210mm;
+  height: 297mm;
+  margin: 24px auto;
+  display: flex;
+  background: var(--paper);
+  box-shadow: 0 2px 12px rgba(0,0,0,.12);
+  overflow: hidden;
+}
+@media print {
+  body { background: none; }
+  .page { margin: 0; box-shadow: none; }
+}
+
+/* ── Columns ───────────────────────────────────────────────── */
+aside {
+  width: 262px;
+  flex-shrink: 0;
+  padding: 40px 28px;
+  background: var(--sidebar);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+main {
+  flex: 1;
+  min-width: 0;
+  padding: 40px 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* ── Text roles (the only five) ────────────────────────────── */
+h1 { margin: 0; font-size: 24px; font-weight: 600; line-height: 1.2; letter-spacing: -0.01em; }
+.role { margin: 4px 0 0; font-size: 13px; font-weight: 600; color: var(--accent); }
+h2 {
+  margin: 0;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+h2 { display: flex; align-items: center; gap: 8px; }
+.icon {
+  width: 14px; height: 14px; flex-shrink: 0;
+  fill: none; stroke: currentColor; stroke-width: 2;
+  stroke-linecap: round; stroke-linejoin: round;
+}
+h3 { margin: 0; font-size: 13px; font-weight: 600; }
+.muted { color: var(--muted); }
+p { margin: 0; }
+
+a { color: var(--ink); text-decoration: none; }
+a:hover { color: var(--accent); }
+
+/* ── Blocks ────────────────────────────────────────────────── */
+section { display: flex; flex-direction: column; gap: 10px; }
+.stack-tight { display: flex; flex-direction: column; gap: 4px; }
+.stack-skills { display: flex; flex-direction: column; gap: 8px; }
+.label { font-weight: 600; }
+.photo { width: 112px; height: 112px; border-radius: 50%; object-fit: cover; display: block; }
+.intro { display: flex; flex-direction: column; gap: 14px; }
+
+.job { display: flex; flex-direction: column; gap: 4px; }
+.job-head { display: flex; justify-content: space-between; gap: 12px; align-items: baseline; }
+.date { color: var(--muted); white-space: nowrap; }
+ul { margin: 0; padding-left: 14px; }
+li { margin: 0 0 2px; }
+
+.grid-2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px 20px; }
+.experience { gap: 16px; }
+
+/* ── Language switch (screen only, never printed) ──────────── */
+.lang {
+  position: fixed; top: 16px; right: 16px;
+  display: flex; gap: 4px; padding: 4px;
+  background: var(--paper); border-radius: 8px;
+  box-shadow: 0 1px 6px rgba(0,0,0,.12);
+  font-weight: 600; font-size: 12px;
+}
+.lang a { padding: 6px 10px; border-radius: 6px; color: var(--muted); }
+.lang a[aria-current="page"] { background: var(--sidebar); color: var(--ink); }
+@media print { .lang { display: none; } }
