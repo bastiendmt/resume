@@ -8,6 +8,7 @@ Plain HTML/CSS résumé, one A4 page, in English and French.
 | `fr.html`    | French version                                           |
 | `style.css`  | Shared layout and design tokens (change `--accent` here) |
 | `photo.jpg`  | Portrait                                                 |
+| `favicon.svg`, `favicon-32.png`, `apple-touch-icon.png` | Browser tab and iOS home-screen icons ("BD" monogram, same blue as `--accent`) |
 | `export-pdf.sh` | Regenerates the two PDFs from the HTML pages          |
 
 ## Export to PDF
